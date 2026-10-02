@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뽀삐</title>
+</head>
+<body>
+
+    <script>
+
+         
+    
+        let 점수 = [
+             {
+            이름:"리오넬 메시",
+            링크:"1.png",
+            득표수:0}
+            ,{
+            이름:"히카르두 카카",
+            링크:"2.png",
+            득표수:0}
+            ,{
+            이름:"네이마르 주니오르",
+            링크:"3.png",
+            득표수:0}
+            ,{
+            이름:"앙헬 디마리아",
+            링크:"4.png",
+            득표수:0}
+            ,{
+            이름:"크리스티아누 호날두",
+            링크:"5.png",
+            득표수:0}
+            ,{
+            이름:"마이클 올리세",
+            링크:"6.png",
+            득표수:0}
+            ,{
+            이름:"케난 일디즈",
+            링크:"7.png",
+            득표수:0}
+            
+        
+        ];
+
+
+        let 지난대결 = [-0,-0,]     
+        let 랜덤숫자 = [Math.floor(Math.random() *점수.length),Math.floor(Math.random() *점수.length)]  
+        let 전체투표수 = 점수.reduce((합계, x2) => 합계 + x2.득표수, 0);
+       
+        
+        
+        function 점수를올리다(대상){
+        
+            점수[대상].득표수 += 1;
+            전체투표수 = 점수.reduce((합계, x2) => 합계 + x2.득표수, 0);
+            점수.sort((a , b) => b.득표수 - a.득표수);
+            document.getElementById("사과3").innerHTML = 점수.map(x => `<p class="플레이어">${x.이름} : ${x.득표수} 표 (${Math.floor(x.득표수 / 전체투표수 * 100)}%) </p>`)
+            .join("");
+            대결();
+            document.getElementById("포도2").innerHTML = 전체투표수
+        }
+        function 점수를올리다2(대상){
+             
+            점수[대상].득표수 += 1;
+            전체투표수 = 점수.reduce((합계, x2) => 합계 + x2.득표수, 0);
+            점수.sort((a , b) => b.득표수 - a.득표수);
+            document.getElementById("사과3").innerHTML = 점수.map(x => `<p class="플레이어">${x.이름} : ${x.득표수} 표 (${Math.floor(x.득표수 / 전체투표수 * 100)}%) </p>`)
+            .join("");
+            대결();
+            document.getElementById("포도2").innerHTML = 전체투표수
+            
+        }
+        function 대결(){
+            
+            
+            while (랜덤숫자[0]===랜덤숫자[1] || 점수[랜덤숫자[0]].이름 === 지난대결[0] || 점수[랜덤숫자[1]].이름 === 지난대결[1]){
+                랜덤숫자 =[Math.floor(Math.random() *점수.length),Math.floor(Math.random() *점수.length)]
+                }
+            document.getElementById("이미지1").src = 점수[랜덤숫자[0]].링크
+            document.getElementById("사과").innerText = 점수 [랜덤숫자[0]].이름
+            document.getElementById("이미지2").src = 점수 [랜덤숫자[1]].링크
+            document.getElementById("바나나").innerText = 점수 [랜덤숫자[1]].이름
+            지난대결 = [점수[랜덤숫자[0]].이름 , 점수[랜덤숫자[1]].이름 ]
+           
+            }
+        
+    </script>
+
+
+
+
+    <style>
+        .플레이어{
+            font-family: 'Presentationㅈㄴ두꺼운거';
+            font-weight: bolder;
+            background-color: rgb(142, 71, 71);
+            border-radius: 7px;
+        }
+        
+        body{
+            overflow: hidden;
+            background-color: rgb(115, 108, 108);
+        }
+    
+
+   
+
+    @font-face {
+    font-family: 'Presentation얋은거';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-1Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;}
+
+    @font-face {
+    font-family: 'Presentation두꺼운거';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;}
+
+    @font-face {
+    font-family: 'Presentationㅈㄴ두꺼운거';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;}
+    
+
+    @keyframes 상승 {
+        0% {position: absolute; top: 50%; left: 48%; transform: translate(-50%,-50%)}
+        50%{position: absolute; top: 50%; left: 52%; transform: translate(-50%,-50%)}
+        100%{position: absolute; top: 50%; left: 48%; transform: translate(-50%,-50%)}
+    }
+
+    @keyframes 상승2 {
+        0% { top: +100%; opacity: 0;}
+        100%{ top: 20%; opacity: 1; }
+    }   
+    @keyframes 상승3 {
+        0% { left: -10%; opacity: 0;}
+        100%{ left: 1%; opacity: 1}
+    }
+    
+    @keyframes 확대 {
+        0% {scale: (1);}
+        100% {scale: (1.2);}
+        
+    }
+
+    @keyframes 축소 {
+        100% {scale: (1);}
+    
+    }
+
+
+
+    @keyframes 상승4 {
+        0% { left: 100%; opacity: 1;}
+        100%{ left: 50%; opacity: 1}
+    }
+    
+     @keyframes 상승4 {
+        0% { top: +100%; opacity: 0;}
+        100%{ top: 65%; opacity: 0.3; }
+     }
+
+
+    .상자1, .상자2 ,.플레이어 ,.안녕,.망고 {
+        transition: 1s cubic-bezier(0,1.07,.31,.98);
+    }
+
+    .상자1:hover, .상자2:hover,.플레이어:hover,.안녕:hover,.망고:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+
+    </style>
+    
+   
+   
+
+    <h1 class="안녕" style="opacity: 0; position: absolute; top: 7%;left: 0%; animation: 상승3 5s cubic-bezier(.17,.67,0,1.13) forwards;
+    font-weight: bold; font-family: 'Presentationㅈㄴ두꺼운거'; font-size: r; color: rgb(19, 18, 18);
+                 white-space: nowrap; background-color: rgb(146, 146, 133);border-radius: 5px;">
+                 
+    
+        어느 축구선수가 goat인가요?
+</h1>
+    <!-- 박스 만들기! -->
+    <div class="상자1" style="position: relative; display: inline-block;position: absolute; left: 0; top: 0%; background-color: rgb(156, 156, 141);
+                border-radius: 30px;animation: 상승2 3s cubic-bezier(.27,1,1,.99) forwards;overflow: hidden; opacity: 0;">
+          
+            <img id="이미지1"
+                style="display: block;"
+                onclick="점수를올리다(랜덤숫자[0]);">
+
+                
+    
+            <!-- 폰트와 글짜 크기를 설정한 사과 id가 있는 문자 -->
+            <P id="사과" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);   
+                font-weight: bold; font-family: 'Presentationㅈㄴ두꺼운거'; font-size: larger; color: rgb(12, 12, 12);
+                animation: 상승 2s infinite ease-in-out; white-space: nowrap; background-color: rgb(143, 143, 137);border-radius: 5px;">
+                
+                
+            </p>
+            
+    </div>
+    
+
+    <div class="상자2"style="position: relative; display: inline-block; position: absolute; left: 23%; top: 0%; background-color: rgb(156, 156, 141);
+                border-radius: 30px; overflow: hidden;animation: 상승2 3s cubic-bezier(.27,1,1,.99) forwards; opacity: 0;">
+           
+            <img id="이미지2"
+                style="display: block;"
+                onclick="점수를올리다2(랜덤숫자[1]);">
+       
+           
+                
+           
+            <P id="바나나" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+                font-weight: bold; font-family: 'Presentationㅈㄴ두꺼운거'; font-size: larger; color: rgb(12, 12, 12);
+                animation: 상승 2s infinite ease-in-out; white-space: nowrap; background-color: rgb(143, 143, 137);border-radius: 5px;">
+                
+            </P>
+            
+    </div>
+    
+    <IMG id="이미지6"class ="망고" style="position: absolute; top : 70%; left: 0%; animation: 상승4 6s 2s cubic-bezier(0,1,0,1) forwards; white-space: nowrap; opacity: 0; border-radius: 20PX;">
+        
+    
+    </IMG>
+
+    
+    </p>
+    
+    <P id = 사과3 style="position: absolute; left: 50%; top: 10%; animation: 상승2 6s 1s cubic-bezier(0,1,0,1) forwards; white-space: nowrap; opacity: 0;">
+    
+    </P>
+
+    <p id = 포도2 style="position: absolute; left: 50%;">
+        
+    </p>
+
+     <script>
+        document.getElementById("이미지6").src = "https://mblogthumb-phinf.pstatic.net/MjAxNzA4MjJfMjU0/MDAxNTAzMzk0MTI3NDM5.mlSGP6HsE_81wdsuo13-yNDZP6ReUrI0jmBGaNolKQYg.f-7C3U_PSgEpjW26yRIW1k0mJBr3EwMRArvIWyJ-pq0g.GIF.aimarjb/%EC%A0%95%EC%84%B1%EB%A3%A1%E3%85%8B.gif?type=w800"
+           
+        점수.sort((a , b) => b.득표수 - a.득표수);
+            document.getElementById("사과3").innerHTML = 점수.map(x => `<p class="플레이어">${x.이름} : ${x.득표수}  </p>`)
+            .join("");
+          대결();
+        
+    </script>
+    
+    
+</body>
+</html>
